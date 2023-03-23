@@ -16,7 +16,7 @@ public class Subject {
         setFullMark(fullMark);
     }
     //default Full Mark = 100
-    Subject(String SubjectName, String SubjectCode){
+    Subject(String subjectName, String subjectCode){
         setSubjectName(subjectName);
         setSubjectCode(subjectCode);
         setFullMark(100);
