@@ -52,4 +52,18 @@ public class Student {
         return this.number;
     }
 
+    public int getActivities(){
+        return activities;
+    }
+    public int getOral(){
+        return oral;
+    }
+
+    public int getMidterm(){
+        return midterm;
+    }
+    public int getFinal(){
+        return Final;
+    }
+
 }

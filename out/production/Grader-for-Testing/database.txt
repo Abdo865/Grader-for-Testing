@@ -1,0 +1,5 @@
+Database Systems , CSE333s , 100
+Yusuf Ashraf , 18q6813 , -5 , -10 , 0 , 0
+Abdo Nasser , 194547 , -5 , -10 , 0 , 0
+Rana Gamal , 1901398 , -5 , -10 , 0 , 0
+Sara Ahmed , 1901247 , -5 , -10 , 0 , 0
