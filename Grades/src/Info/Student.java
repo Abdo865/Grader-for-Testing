@@ -15,7 +15,7 @@ public class Student {
     private int Final;
 
 
-    public Student(String name, String number, int activities, int oral, int midterm, int Final, String grade) {
+    public Student(String name, String number, int activities, int oral, int midterm, int Final) {
         setName(name);
         setNumber(number);
         setActivities(activities);
