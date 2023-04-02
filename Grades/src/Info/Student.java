@@ -15,7 +15,7 @@ public class Student {
     private int Final;
 
 
-    public Student(String name, String number, int activities, int oral, int midterm, int Final) {
+    public Student(String name, String number, int activities, int oral, int midterm, int Final) throws Exception {
         setName(name);
         setNumber(number);
         setActivities(activities);
@@ -101,13 +101,10 @@ public class Student {
         return activities;
     }
 
-    public void setActivities(int activities) {
-        try {
-            if (activities > 10 || activities < 0) throw new Exception("activities must be between 0 and 10");
-            this.activities = activities;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void setActivities(int activities) throws Exception {
+        if (activities > 10 || activities < 0) throw new Exception("activities must be between 0 and 10");
+        this.activities = activities;
+
     }
 
     public int getOral() {
@@ -128,26 +125,19 @@ public class Student {
         return midterm;
     }
 
-    public void setMidterm(int midterm) {
-        try {
-            if (midterm > 20 || midterm < 0) throw new Exception("Midterm must be between 0 and 20");
-            this.midterm = midterm;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void setMidterm(int midterm) throws Exception {
+
+        if (midterm > 20 || midterm < 0) throw new Exception("Midterm must be between 0 and 20");
+        this.midterm = midterm;
     }
 
     public int getFinal() {
         return Final;
     }
 
-    public void setFinal(int Final) {
-        try {
-            if (Final > 60 || Final < 0) throw new Exception("Final must be between 0 and 60");
-            this.Final = Final;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void setFinal(int Final) throws Exception {
+        if (Final > 60 || Final < 0) throw new Exception("Final must be between 0 and 60");
+        this.Final = Final;
     }
 
     public int getTotal() {
@@ -164,15 +154,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", number='" + number + '\'' +
-                ", grade='" + grade + '\'' +
-                ", GPA=" + GPA +
-                ", activities=" + activities +
-                ", oral=" + oral +
-                ", midterm=" + midterm +
-                ", Final=" + Final +
-                '}';
+        return "Student{" + "name='" + name + '\'' + ", number='" + number + '\'' + ", grade='" + grade + '\'' + ", GPA=" + GPA + ", activities=" + activities + ", oral=" + oral + ", midterm=" + midterm + ", Final=" + Final + '}';
     }
 }
