@@ -1,3 +1,5 @@
 1 - Check all lines for subject and return them in an arraylist.
 2 - throw Exception in Student and subject to differentiate between subject and student codes.
-3 -
+3 - update output.save() in main to contain data rather than set.
+4 - update output.save() in main to handle exception.
+5 - allow appending in output.save() function
