@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 public class InputTest {
 
     @Test
-    public void getSubjectInfo() {
+    public void getSubjectInfo() throws Exception {
         Subject ExpectedSubject = new Subject("Database Systems", "CSE323s", 100);
         Subject ActualSubject = Input.getSubjectInfo("./Test.txt");
         assertEquals(ExpectedSubject.getSubjectCode(), ActualSubject.getSubjectCode());
@@ -21,7 +21,7 @@ public class InputTest {
     }
 
     @Test
-    public void getStudentList() {
+    public void getStudentList() throws Exception {
         Student a = new Student("Yusuf Ashraf", "19000813", -5, -10, 0, 0);
         Student b = new Student("Abdo Nasser", "194547", -5, -10, 0, 0);
         Student c = new Student("Rana Gamal", "1901398", -5, -10, 0, 0);
