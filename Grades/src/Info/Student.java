@@ -70,31 +70,25 @@ public class Student {
         return name;
     }
 
-    public void setName(String name) {
-        try {
-            if (name.charAt(0) == ' ') throw new InvalidNameException("Name must not start with space");
-            else if (!isAlpha(name)) throw new InvalidNameException("Name must be all alphabets");
-            this.name = name;
-        } catch (InvalidNameException e) {
-            System.out.println(e);
-        }
+    public void setName(String name) throws InvalidNameException {
+
+        if (name.charAt(0) == ' ') throw new InvalidNameException("Name must not start with space");
+        else if (!isAlpha(name)) throw new InvalidNameException("Name must be all alphabets");
+        this.name = name;
+
     }
 
     public String getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
-        try {
-            if (number.length() != 8) throw new Exception("Number must be 8 characters");
-            else if (!isNumeric(number.substring(0, 7))) throw new Exception("Number must start with 7 numbers");
-            else if (!isAlphaNumeric(number.substring(7, 8)))
-                throw new Exception("Number must end with either number or character");
+    public void setNumber(String number) throws Exception {
+        if (number.length() != 8) throw new Exception("Number must be 8 characters");
+        else if (!isNumeric(number.substring(0, 7))) throw new Exception("Number must start with 7 numbers");
+        else if (!isAlphaNumeric(number.substring(7, 8)))
+            throw new Exception("Number must end with either number or character");
 
             this.number = number;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
     }
 
     public int getActivities() {
@@ -111,13 +105,11 @@ public class Student {
         return oral;
     }
 
-    public void setOral(int oral) {
-        try {
-            if (activities > 10 || activities < 0) throw new Exception("Oral must be between 0 and 10");
-            this.oral = oral;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void setOral(int oral) throws Exception {
+
+        if (activities > 10 || activities < 0) throw new Exception("Oral must be between 0 and 10");
+        this.oral = oral;
+
 
     }
 

@@ -1,5 +1,0 @@
-Database Systems , CSE323s , 100
-Yusuf Ashraf , 19000813 , 10 , 10 , 20 , 60
-Abdo Nasser , 19045047 , 5 , 10 , 0 , 0
-Rana Gamal , 19013908 , 5 , 10 , 0 , 0
-Sara Ahmed , 19012470 , 5 , 10 , 0 , 0
