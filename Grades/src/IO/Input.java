@@ -23,9 +23,8 @@ public class Input {
         return subject;
     }
 
-    public static ArrayList getStudentList(String fileName) {
+    public static ArrayList getStudentList(String fileName) throws Exception {
         ArrayList<Student> students = new ArrayList<>();
-        try {
             //to skip the first line
             reader = new Scanner(new File(fileName));
             reader.nextLine();
@@ -36,9 +35,7 @@ public class Input {
                 Student nextStudent = new Student(values[0].trim(), values[1].trim(), Integer.parseInt(values[2].trim()), Integer.parseInt(values[3].trim()), Integer.parseInt(values[4].trim()), Integer.parseInt(values[5].trim()));
                 students.add(nextStudent);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
         return students;
 
     }
