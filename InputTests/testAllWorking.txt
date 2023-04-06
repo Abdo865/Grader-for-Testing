@@ -1,0 +1,2 @@
+Database Systems , CSE323s , 100
+Rock lee , 71717171, 10, 10, 20, 60

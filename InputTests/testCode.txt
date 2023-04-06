@@ -1,0 +1,4 @@
+Database Systems , CSE323s , 100
+Abdo Nasser , 1904504 , 5 , 10 , 0 , 0
+Abdo Nasser , A9045040 , 5 , 10 , 20 , 60
+Abdo Nasser , 1904504! , 5 , 10 , 20 , 60
