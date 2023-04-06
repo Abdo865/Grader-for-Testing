@@ -1,72 +1,73 @@
 package Testing.IO;
 
 import static org.junit.Assert.*;
-
 import org.junit.jupiter.api.Assertions;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 
+import javax.naming.InvalidNameException;
 
 import java.io.BufferedReader;
 
+import org.junit.Assert;
 import org.junit.Test;
 import Info.*;
 import IO.*;
 
-
 public class OutputTest {
+    private String subjectName = "Test";
+    private String subjectCode = "TET123";
+
+    private void clear() throws Exception {
+        File file = new File("../Test.CSV");
+        Files.deleteIfExists(file.toPath());
+    }
 
     @Test
-    public void testFileAlreadyExists() throws Exception {
-        File file = new File("../Test.CSV");
-        Assertions.assertDoesNotThrow(() -> Files.deleteIfExists(file.toPath()));
+    public void testFileAlreadyExists() {
+        Assertions.assertDoesNotThrow(() -> {
+            clear();
 
-        String subjectName = "Test";
-        String subjectCode = "TET123";
+            Subject subject = new Subject(subjectName, subjectCode);
 
-        Subject subject = new Subject(subjectName, subjectCode);
+            new Output(subject);
 
-        new Output(subject);
-
-        assertThrows(IOException.class, () -> new Output(subject));
+            assertThrows(IOException.class, () -> new Output(subject));
+        });
     }
 
     @Test
     public void testSubjectIsNull() {
-        File file = new File("../Test.CSV");
-        Assertions.assertDoesNotThrow(() -> Files.deleteIfExists(file.toPath()));
+        Assertions.assertDoesNotThrow(() -> {
+            clear();
+        });
 
-        assertThrows(NullPointerException.class, () -> new Output(null));
+        assertThrows(NullPointerException.class, ()->new Output(null));
     }
 
     @Test
-    public void testDataIsNull() throws Exception {
-        File file = new File("../Test.CSV");
-        Assertions.assertDoesNotThrow(() -> Files.deleteIfExists(file.toPath()));
-
-        String subjectName = "Test";
-        String subjectCode = "TES123s";
-
-        Subject subject = new Subject(subjectName, subjectCode);
-
-        Output outputFile = new Output(subject);
-
-        assertThrows(NullPointerException.class, () -> outputFile.save());
+    public void testDataIsNull() {
+        Assertions.assertDoesNotThrow(() -> {
+            clear();
+    
+            Subject subject = new Subject(subjectName, subjectCode);
+    
+            Output outputFile = new Output(subject);
+    
+            assertThrows(NullPointerException.class, () -> outputFile.save());
+        });
     }
 
     @Test
     public void testOutputFormat() {
-        File file = new File("../Test.CSV");
-        Assertions.assertDoesNotThrow(() -> Files.deleteIfExists(file.toPath()));
-
-        String subjectName = "Test";
-        String subjectCode = "TES123";
-
         Assertions.assertDoesNotThrow(() -> {
+            clear();
 
             Subject subject = new Subject(subjectName, subjectCode);
 
@@ -98,14 +99,14 @@ public class OutputTest {
             assertEquals("Student name,Student number,GPA,Grade", line);
 
             int index = 0;
-
-            while (line != null && index < data.size()) {
-                line = reader.readLine();
-                assertEquals(data.get(index).getName() + "," + data.get(index).getNumber() + "," + data.get(index).getGPA() + "," + data.get(index).getGrade(), line);
+			while (line != null && index < data.size()) {
+				line = reader.readLine();
+                assertEquals(data.get(index).getName()+","+data.get(index).getNumber()+
+                            ","+data.get(index).getGPA()+","+data.get(index).getGrade(), line);
                 index++;
-            }
+			}
 
-            reader.close();
+			reader.close();
         });
     }
 }
