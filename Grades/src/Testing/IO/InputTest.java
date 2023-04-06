@@ -15,34 +15,34 @@ public class InputTest {
 
     @Test
     public void testStudentName() throws Exception{
-        Assertions.assertThrows(InvalidNameException.class, ()-> Input.getStudentList("./InputTests/testName.txt"));
+        Assertions.assertThrows(InvalidNameException.class, ()-> Input.getStudentList("./src/InputTests/testName.txt"));
     }
 
     @Test
     public void testStudentCode() throws Exception{
-        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./InputTests/testCode.txt"));
+        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./src/InputTests/testCode.txt"));
     }
     @Test
     public void testStudentActivities() throws Exception{
-        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./InputTests/testName.txt"));
+        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./src/InputTests/testName.txt"));
     }
 
     @Test
     public void testStudentOral() throws Exception{
-        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./InputTests/testName.txt"));
+        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./src/InputTests/testName.txt"));
     }
 
     @Test
     public void testStudentMidterm() throws Exception{
-        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./InputTests/testName.txt"));
+        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./src/InputTests/testName.txt"));
     }
 
     @Test
     public void testStudentFinal() throws Exception{
-        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./InputTests/testName.txt"));
+        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./src/InputTests/testName.txt"));
     }
     @Test
     public void testWorkingFile() throws Exception{
-        Assertions.assertDoesNotThrow(()-> Input.getStudentList("./InputTests/testAllWorking.txt"));
+        Assertions.assertDoesNotThrow(()-> Input.getStudentList("./src/InputTests/testAllWorking.txt"));
     }
 }
