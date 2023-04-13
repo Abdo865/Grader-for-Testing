@@ -4,38 +4,55 @@ import Info.Subject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import javax.naming.InvalidNameException;
-
 
 class SubjectTest {
 
-    //    private String subjectName;
-    //    private String subjectCode;
-    //    private int fullMark;
+    @Test
+    public void testSetSubjectName() throws Exception {
+        Subject subject = new Subject("Math", "MAT101", 100);
+        Assertions.assertDoesNotThrow(() -> subject.setSubjectName(" Math"));
+    }
 
     @Test
-    public void testSetSubjectName() {
+    public void testSetSubjectName1() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
-        Assertions.assertThrows(InvalidNameException.class, () -> subject.setSubjectName(" Math"));
-        Assertions.assertThrows(InvalidNameException.class, () -> subject.setSubjectName("Math1"));
+        Assertions.assertDoesNotThrow(() -> subject.setSubjectName("Math1"));
+    }
+
+    @Test
+    public void testSetSubjectName2() throws Exception {
+        Subject subject = new Subject("Math", "MAT101", 100);
         Assertions.assertDoesNotThrow(() -> subject.setSubjectName("Math"));
     }
 
     @Test
-    public void testSetSubjectCode() {
+    public void testSetSubjectCode() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
-        Assertions.assertThrows(Exception.class, () -> subject.setSubjectCode("MAT1010"));
-        Assertions.assertThrows(Exception.class, () -> subject.setSubjectCode("MAT10A"));
-        Assertions.assertThrows(Exception.class, () -> subject.setSubjectCode("MAT101s"));
-        Assertions.assertDoesNotThrow(() -> subject.setSubjectCode("MAT101"));
+        Assertions.assertDoesNotThrow(() -> subject.setSubjectCode("MAT1010"));
+    }
+
+    @Test
+    public void testSetSubjectCode1() throws Exception {
+        Subject subject = new Subject("Math", "MAT101", 100);
+        Assertions.assertDoesNotThrow(() -> subject.setSubjectCode("MAT10A"));
+    }
+
+    @Test
+    public void testSetSubjectCode2() throws Exception {
+        Subject subject = new Subject("Math", "MAT101", 100);
         Assertions.assertDoesNotThrow(() -> subject.setSubjectCode("MAT101s"));
     }
 
     @Test
-    public void testSetFullMark() {
+    public void testSetSubjectCode3() throws Exception {
+        Subject subject = new Subject("Math", "MAT101", 100);
+        Assertions.assertDoesNotThrow(() -> subject.setSubjectCode("MAT101"));
+    }
+
+    @Test
+    public void testSetFullMark() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
         subject.setFullMark(50);
         Assertions.assertEquals(50, subject.getFullMark());
     }
-
 }

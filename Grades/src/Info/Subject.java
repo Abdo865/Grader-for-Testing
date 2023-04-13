@@ -11,7 +11,7 @@ public class Subject {
     private int fullMark;
 
     //cons
-    public Subject(String subjectName, String subjectCode, int fullMark) {
+    public Subject(String subjectName, String subjectCode, int fullMark) throws Exception {
         setSubjectName(subjectName);
         setSubjectCode(subjectCode);
         setFullMark(fullMark);
@@ -19,7 +19,7 @@ public class Subject {
 
 
     //default Full Mark = 100
-    public Subject(String subjectName, String subjectCode) {
+    public Subject(String subjectName, String subjectCode) throws Exception {
         setSubjectName(subjectName);
         setSubjectCode(subjectCode);
         setFullMark(100);
@@ -31,35 +31,27 @@ public class Subject {
     }
 
     //setters
-    public void setSubjectName(String subjectName) {
-        try {
-            if (subjectName.charAt(0) == ' ') throw new InvalidNameException("Subject Name must not start with space");
-            else if (!isAlpha(subjectName) ) throw new
-                    InvalidNameException("Subject Name must be all alphabets with spaces inside if needed");
-            this.subjectName = subjectName;
+    public void setSubjectName(String subjectName) throws InvalidNameException {
+        if (subjectName.charAt(0) == ' ') throw new InvalidNameException("Subject Name must not start with space");
+        else if (!isAlpha(subjectName))
+            throw new InvalidNameException("Subject Name must be all alphabets with spaces inside if needed");
+        this.subjectName = subjectName;
 
-        } catch (InvalidNameException e) {
-            System.out.println(e);
-        }
     }
 
     public String getSubjectCode() {
         return this.subjectCode;
     }
 
-    public void setSubjectCode(String subjecCode) {
-        try {
-            if (subjecCode.length() > 7 || subjecCode.length() < 6)
-                throw new Exception("Subject code length must be 6 or 7");
-            else if (!isAlpha(subjecCode.substring(0, 3)) && !isNumeric(subjecCode.substring(3, 6)))
-                throw new Exception("Subject code must start with 3 letters then 3 numbers");
-            else if (subjecCode.length() == 7 && subjecCode.charAt(6) != 's')
-                throw new Exception("Subject code must end with s since it's 7 characters");
+    public void setSubjectCode(String subjecCode) throws Exception {
+        if (subjecCode.length() > 7 || subjecCode.length() < 6)
+            throw new Exception("Subject code length must be 6 or 7");
+        else if (!isAlpha(subjecCode.substring(0, 3)) || !isNumeric(subjecCode.substring(3, 6)))
+            throw new Exception("Subject code must start with 3 letters then 3 numbers");
+        else if (subjecCode.length() == 7 && subjecCode.charAt(6) != 's')
+            throw new Exception("Subject code must end with s since it's 7 characters");
 
-            this.subjectCode = subjecCode;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        this.subjectCode = subjecCode;
     }
 
     public int getFullMark() {
@@ -72,11 +64,7 @@ public class Subject {
 
     @Override
     public String toString() {
-        return "Subject{" +
-                "subjectName='" + subjectName + '\'' +
-                ", subjectCode='" + subjectCode + '\'' +
-                ", fullMark=" + fullMark +
-                '}';
+        return "Subject{" + "subjectName='" + subjectName + '\'' + ", subjectCode='" + subjectCode + '\'' + ", fullMark=" + fullMark + '}';
     }
 
 }

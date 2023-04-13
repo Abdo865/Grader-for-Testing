@@ -15,7 +15,7 @@ public class Student {
     private int Final;
 
 
-    public Student(String name, String number, int activities, int oral, int midterm, int Final) {
+    public Student(String name, String number, int activities, int oral, int midterm, int Final) throws Exception {
         setName(name);
         setNumber(number);
         setActivities(activities);
@@ -70,57 +70,46 @@ public class Student {
         return name;
     }
 
-    public void setName(String name) {
-        try {
-            if (name.charAt(0) == ' ') throw new InvalidNameException("Name must not start with space");
-            else if (!isAlpha(name)) throw new InvalidNameException("Name must be all alphabets");
-            this.name = name;
-        } catch (InvalidNameException e) {
-            System.out.println(e);
-        }
+    public void setName(String name) throws InvalidNameException {
+
+        if (name.charAt(0) == ' ') throw new InvalidNameException("Name must not start with space");
+        else if (!isAlpha(name)) throw new InvalidNameException("Name must be all alphabets");
+        this.name = name;
+
     }
 
     public String getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
-        try {
-            if (number.length() != 8) throw new Exception("Number must be 8 characters");
-            else if (!isNumeric(number.substring(0, 7))) throw new Exception("Number must start with 7 numbers");
-            else if (!isAlphaNumeric(number.substring(7, 8)))
-                throw new Exception("Number must end with either number or character");
+    public void setNumber(String number) throws Exception {
+        if (number.length() != 8) throw new Exception("Number must be 8 characters");
+        else if (!isNumeric(number.substring(0, 7))) throw new Exception("Number must start with 7 numbers");
+        else if (!isAlphaNumeric(number.substring(7, 8)))
+            throw new Exception("Number must end with either number or character");
 
             this.number = number;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
     }
 
     public int getActivities() {
         return activities;
     }
 
-    public void setActivities(int activities) {
-        try {
-            if (activities > 10 || activities < 0) throw new Exception("activities must be between 0 and 10");
-            this.activities = activities;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void setActivities(int activities) throws Exception {
+        if (activities > 10 || activities < 0) throw new Exception("activities must be between 0 and 10");
+        this.activities = activities;
+
     }
 
     public int getOral() {
         return oral;
     }
 
-    public void setOral(int oral) {
-        try {
-            if (activities > 10 || activities < 0) throw new Exception("Oral must be between 0 and 10");
-            this.oral = oral;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void setOral(int oral) throws Exception {
+
+        if (activities > 10 || activities < 0) throw new Exception("Oral must be between 0 and 10");
+        this.oral = oral;
+
 
     }
 
@@ -128,26 +117,19 @@ public class Student {
         return midterm;
     }
 
-    public void setMidterm(int midterm) {
-        try {
-            if (midterm > 20 || midterm < 0) throw new Exception("Midterm must be between 0 and 20");
-            this.midterm = midterm;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void setMidterm(int midterm) throws Exception {
+
+        if (midterm > 20 || midterm < 0) throw new Exception("Midterm must be between 0 and 20");
+        this.midterm = midterm;
     }
 
     public int getFinal() {
         return Final;
     }
 
-    public void setFinal(int Final) {
-        try {
-            if (Final > 60 || Final < 0) throw new Exception("Final must be between 0 and 60");
-            this.Final = Final;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void setFinal(int Final) throws Exception {
+        if (Final > 60 || Final < 0) throw new Exception("Final must be between 0 and 60");
+        this.Final = Final;
     }
 
     public int getTotal() {
@@ -164,15 +146,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", number='" + number + '\'' +
-                ", grade='" + grade + '\'' +
-                ", GPA=" + GPA +
-                ", activities=" + activities +
-                ", oral=" + oral +
-                ", midterm=" + midterm +
-                ", Final=" + Final +
-                '}';
+        return "Student{" + "name='" + name + '\'' + ", number='" + number + '\'' + ", grade='" + grade + '\'' + ", GPA=" + GPA + ", activities=" + activities + ", oral=" + oral + ", midterm=" + midterm + ", Final=" + Final + '}';
     }
 }
