@@ -10,16 +10,19 @@ import java.util.ArrayList;
 
 public class Output {
     private ArrayList<Student> data;
-    private Subject subject;
-    private File file;
+    private final File file;
 
     public Output(Subject subject) throws IOException{
 
         this.file = new File("../" + subject.getSubjectName() + ".CSV");
         //create the file
-
-        this.subject = subject;
         if (!file.createNewFile()) throw new IOException("File already exists.");
+        if (data == null) throw new NullPointerException("No entered data");
+        FileWriter writer = new FileWriter(file);
+        //write content
+
+        writer.write("Subject Name: " + subject.getSubjectName() + ",Max Mark: " + subject.getFullMark() + "\r\n");
+        writer.write("Student name,Student number,GPA,Grade\r\n");
 
     }
 
@@ -27,10 +30,8 @@ public class Output {
 
         if (data == null) throw new NullPointerException("No entered data");
         FileWriter writer = new FileWriter(file);
-        //write content
 
-        writer.write("Subject Name: " + subject.getSubjectName() + ",Max Mark: " + subject.getFullMark() + "\r\n");
-        writer.write("Student name,Student number,GPA,Grade\r\n");
+        //write content
         for (Student studentInfo : data) {
             writer.write(studentInfo.getName() + ",");
             writer.write(studentInfo.getNumber() + ",");
