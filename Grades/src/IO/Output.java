@@ -23,7 +23,7 @@ public class Output {
 
     }
 
-    public void save() throws IOException, NullPointerException {
+    private void save() throws IOException, NullPointerException {
 
         if (data == null) throw new NullPointerException("No entered data");
         FileWriter writer = new FileWriter(file);
