@@ -36,7 +36,6 @@ public class Output {
      *   @param data lists of students' data to be saved in file
      */
     public void save(ArrayList<Student> data) throws IOException{
-
         FileWriter writer = new FileWriter(file);
 
         //write content
