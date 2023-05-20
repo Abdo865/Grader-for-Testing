@@ -13,6 +13,7 @@ public class Student {
     private int oral;
     private int midterm;
     private int Final;
+    private int total;
 
 
     public Student(String name, String number, int activities, int oral, int midterm, int Final) throws Exception {
@@ -24,13 +25,16 @@ public class Student {
         setFinal(Final);
         setGrade();
     }
-    // setter,  getters for grade
+
+
+    // setter, getters for grade
     public String getGrade() {
+        setGrade();
         return grade;
     }
 
     private void setGrade() {
-        int total = getTotal();
+        total = getTotal();
         if (total >= 0 && total < 60) {
             grade = "F";
             GPA = 0;
@@ -69,6 +73,8 @@ public class Student {
             GPA = 4;
         }
     }
+
+
 
     // getters and setters for name
     public String getName() {

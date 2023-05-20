@@ -44,7 +44,7 @@ public class StudentTest {
     }
 
 
-    /* ----------- Tests of the setActivities method ----------- */
+    /* ----------- Tests of the setActivities method using boundary values test ----------- */
 
     // boundary value test case (lower bound)
     @Test
@@ -81,9 +81,10 @@ public class StudentTest {
         Assertions.assertDoesNotThrow(() -> student.setActivities(11));
     }
 
-    /* ------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------- */
 
-    /* ----------- Tests of the setMidterm method ----------- */
+
+    /* ----------- Tests of the setMidterm method using boundary values test ----------- */
 
     // boundary value test case (lower bound)
     @Test
@@ -120,10 +121,10 @@ public class StudentTest {
         Assertions.assertDoesNotThrow(() ->  student.setMidterm(21));
     }
 
-    /* ------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------- */
 
 
-    /* ----------- Tests of the setOral method ----------- */
+    /* ----------- Tests of the setOral method using boundary values test ----------- */
 
     // boundary value test case (less than lower bound)
     @Test
@@ -160,9 +161,10 @@ public class StudentTest {
         Assertions.assertDoesNotThrow(() -> student.setOral(11));
     }
 
-    /* ------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------- */
 
-    /* ----------- Tests of the setFinal method ----------- */
+
+    /* ----------- Tests of the setFinal method using boundary values test ----------- */
 
     // boundary value test case (less than lower bound)
     @Test
@@ -198,15 +200,10 @@ public class StudentTest {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertDoesNotThrow(() -> student.setFinal(61));
     }
-    /* ------------------------------------------------------- */
+    /* --------------------------------------------------------------------------------- */
 
-    /* ----------- Tests of the setGrade method ----------- */
-    @Test
-    public void testSetGrade() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        student.setMidterm(10);
-    }
 
+    /* ----------- Tests of the Grades method using branch covering ----------- */
     @Test
     public void testSetGrade1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
@@ -236,4 +233,11 @@ public class StudentTest {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertEquals(0, student.getGPA());
     }
+
+    @Test
+    public void testSetGrade6() throws Exception {
+        Student student = new Student("John", "12345678", 5, 3, 4, 5);
+        student.setMidterm(10);
+    }
+    /* --------------------------------------------------------------------------------- */
 }
