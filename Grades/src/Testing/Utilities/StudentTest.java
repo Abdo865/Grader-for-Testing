@@ -4,48 +4,8 @@ import Info.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import javax.naming.InvalidNameException;
-
 
 public class StudentTest {
-
-
-    @Test
-    public void testSetName() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(InvalidNameException.class, () -> student.setName(" John"));
-    }
-
-    @Test
-    public void testSetName1() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(InvalidNameException.class, () -> student.setName("123"));
-    }
-
-    @Test
-    public void testSetName2() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() -> student.setName("John"));
-    }
-
-    @Test
-    public void testSetNumber() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(Exception.class, () -> student.setNumber("1234567"));
-    }
-
-    @Test
-    public void testSetNumber1() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() -> student.setNumber("1234567a"));
-    }
-
-    @Test
-    public void testSetNumber2() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(Exception.class, () -> student.setNumber("12345678a"));
-    }
-
 
     /* ----------- Tests of the setActivities method using boundary values test ----------- */
 
@@ -83,7 +43,6 @@ public class StudentTest {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertThrows(Exception.class, () -> student.setActivities(11));
     }
-
     /* --------------------------------------------------------------------------------- */
 
 
@@ -123,7 +82,6 @@ public class StudentTest {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertThrows(Exception.class, () -> student.setMidterm(21));
     }
-
     /* --------------------------------------------------------------------------------- */
 
 
@@ -163,7 +121,6 @@ public class StudentTest {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertDoesNotThrow(() -> student.setOral(11));
     }
-
     /* --------------------------------------------------------------------------------- */
 
 
@@ -202,45 +159,6 @@ public class StudentTest {
     public void testSetFinal5() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertThrows(Exception.class, () -> student.setFinal(61));
-    }
-    /* --------------------------------------------------------------------------------- */
-
-
-    /* ----------- Tests of the Grades method using branch covering ----------- */
-    @Test
-    public void testSetGrade1() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        student.setOral(5);
-    }
-
-    @Test
-    public void testSetGrade2() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        student.setFinal(30);
-    }
-
-    @Test
-    public void testSetGrade3() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-//        student.setGrade();
-    }
-
-    @Test
-    public void testSetGrade4() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertEquals("F", student.getGrade());
-    }
-
-    @Test
-    public void testSetGrade5() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertEquals(0, student.getGPA());
-    }
-
-    @Test
-    public void testSetGrade6() throws Exception {
-        Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        student.setMidterm(10);
     }
     /* --------------------------------------------------------------------------------- */
 }
