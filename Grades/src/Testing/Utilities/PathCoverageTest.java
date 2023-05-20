@@ -13,6 +13,7 @@ public class PathCoverageTest {
     /* ---------------- Path Coverage Test ---------------- */
 
     // Test for the setName method space at the beginning of the name
+    //path(1, 2, 3, 9)
     @Test
     public void testNameWithSpaceAtStart() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
@@ -20,6 +21,7 @@ public class PathCoverageTest {
     }
 
     // Test for the setName method with invalid name that has numbers on it
+    //path(1, 2, 4, 5, 9)
     @Test
     public void testNameWithNonAlphabeticCharacters() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
@@ -27,6 +29,7 @@ public class PathCoverageTest {
     }
 
     // Test valid name
+    //path(1, 2, 4, 6, 8, 9)
     @Test
     public void testValidName() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
@@ -36,6 +39,7 @@ public class PathCoverageTest {
     }
 
     // Test for the setNumber method with number length less than 8 digits
+    //path((1, 2, 3, 9)
     @Test
     public void testNumberLengthIncorrect() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
@@ -43,6 +47,7 @@ public class PathCoverageTest {
     }
 
     // Test for the Number with non-numeric character at the beginning
+    //path(1, 2, 4, 5, 9)
     @Test
     public void testNumberStartsWithNonNumeric() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
@@ -50,6 +55,7 @@ public class PathCoverageTest {
     }
 
     // Test for the Number with non-alphanumeric character at the end
+    //path(1, 2, 4, 6, 7, 9)
     @Test
     public void testNumberEndsWithNonAlphaNumeric() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
@@ -58,6 +64,7 @@ public class PathCoverageTest {
 
 
     // Test Number with valid case
+    //path (1, 2, 4, 6, 8, 9)
     @Test
     public void testValidNumber() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
