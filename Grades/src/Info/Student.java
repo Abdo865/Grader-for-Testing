@@ -24,8 +24,12 @@ public class Student {
         setFinal(Final);
         setGrade();
     }
+    // setter,  getters for grade
+    public String getGrade() {
+        return grade;
+    }
 
-    public void setGrade() {
+    private void setGrade() {
         int total = getTotal();
         if (total >= 0 && total < 60) {
             grade = "F";
@@ -66,6 +70,7 @@ public class Student {
         }
     }
 
+    // getters and setters for name
     public String getName() {
         return name;
     }
@@ -80,6 +85,8 @@ public class Student {
         }
     }
 
+
+    // getters and setters for number
     public String getNumber() {
         return number;
     }
@@ -97,6 +104,8 @@ public class Student {
         }
     }
 
+
+    // getters and setters for activities
     public int getActivities() {
         return activities;
     }
@@ -104,9 +113,10 @@ public class Student {
     public void setActivities(int activities) throws Exception {
         if (activities > 10 || activities < 0) throw new Exception("activities must be between 0 and 10");
         this.activities = activities;
-
     }
 
+
+    // getters and setters for oral
     public int getOral() {
         return oral;
     }
@@ -121,6 +131,8 @@ public class Student {
 
     }
 
+
+    // getters and setters for midterm
     public int getMidterm() {
         return midterm;
     }
@@ -131,6 +143,8 @@ public class Student {
         this.midterm = midterm;
     }
 
+
+    // getters and setters for Final
     public int getFinal() {
         return Final;
     }
@@ -140,17 +154,18 @@ public class Student {
         this.Final = Final;
     }
 
+
+    // getters for total
     public int getTotal() {
         return activities + midterm + oral + Final;
     }
 
+
+    // getters for GPA
     public float getGPA() {
         return GPA;
     }
 
-    public String getGrade() {
-        return grade;
-    }
 
     @Override
     public String toString() {
