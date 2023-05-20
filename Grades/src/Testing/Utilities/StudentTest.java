@@ -4,8 +4,11 @@ import Info.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.naming.InvalidNameException;
+
 
 public class StudentTest {
+
 
     @Test
     public void testSetName() throws Exception {
