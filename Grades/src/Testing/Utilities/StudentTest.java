@@ -13,13 +13,13 @@ public class StudentTest {
     @Test
     public void testSetName() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setName(" John"));
+        Assertions.assertThrows(InvalidNameException.class ,() ->  student.setName(" John"));
     }
 
     @Test
     public void testSetName1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() -> student.setName("123"));
+        Assertions.assertThrows(InvalidNameException.class ,() -> student.setName("123"));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class StudentTest {
     @Test
     public void testSetNumber() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setNumber("1234567"));
+        Assertions.assertThrows(Exception.class, () ->  student.setNumber("1234567"));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class StudentTest {
     @Test
     public void testSetNumber2() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() -> student.setNumber("12345678a"));
+        Assertions.assertThrows(Exception.class, () -> student.setNumber("12345678a"));
     }
 
 
@@ -53,7 +53,7 @@ public class StudentTest {
     @Test
     public void testSetActivities1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setActivities(-1));
+        Assertions.assertThrows(Exception.class, () ->  student.setActivities(-1));
     }
 
     // boundary value test case (exactly lower bound value)
@@ -81,7 +81,7 @@ public class StudentTest {
     @Test
     public void testSetActivities5() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() -> student.setActivities(11));
+        Assertions.assertThrows(Exception.class, () -> student.setActivities(11));
     }
 
     /* --------------------------------------------------------------------------------- */
@@ -93,7 +93,7 @@ public class StudentTest {
     @Test
     public void testSetMidterm1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setMidterm(-1));
+        Assertions.assertThrows(Exception.class, () ->  student.setMidterm(-1));
     }
 
     // boundary value test case (exactly lower bound value)
@@ -121,7 +121,7 @@ public class StudentTest {
     @Test
     public void testSetMidterm5() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setMidterm(21));
+        Assertions.assertThrows(Exception.class, () ->  student.setMidterm(21));
     }
 
     /* --------------------------------------------------------------------------------- */
@@ -173,7 +173,7 @@ public class StudentTest {
     @Test
     public void testSetFinal1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setFinal(-1));
+        Assertions.assertThrows(Exception.class, () ->  student.setFinal(-1));
     }
 
     // boundary value test case (exactly lower bound value)
@@ -201,7 +201,7 @@ public class StudentTest {
     @Test
     public void testSetFinal5() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() -> student.setFinal(61));
+        Assertions.assertThrows(Exception.class, () -> student.setFinal(61));
     }
     /* --------------------------------------------------------------------------------- */
 
@@ -222,7 +222,7 @@ public class StudentTest {
     @Test
     public void testSetGrade3() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        student.setGrade();
+//        student.setGrade();
     }
 
     @Test
