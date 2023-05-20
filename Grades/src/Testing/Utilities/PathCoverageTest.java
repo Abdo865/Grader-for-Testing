@@ -11,20 +11,20 @@ import static org.junit.Assert.assertEquals;
 public class PathCoverageTest {
 
     @Test
-    public void testStudentName() throws Exception {
+    public void testNameWithSpaceAtStart() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertThrows(InvalidNameException.class, () -> student.setName(" John"));
     }
 
     @Test
-    public void testStudentName1() throws Exception{
+    public void testNameWithNonAlphabeticCharacters() throws Exception{
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertThrows(InvalidNameException.class, () -> student.setName("John123"));
 
     }
 
     @Test
-    public void testStudentName2() throws Exception{
+    public void testValidName() throws Exception{
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         String expectedName = "youssef";
         student.setName("youssef");
@@ -32,25 +32,25 @@ public class PathCoverageTest {
     }
 
     @Test
-    public void testStudentCode() throws Exception{
+    public void testNumberLengthIncorrect() throws Exception{
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertThrows(Exception.class, () -> student.setNumber("123"));
     }
 
     @Test
-    public void testStudentCode1() throws Exception{
+    public void testNumberStartsWithNonNumeric() throws Exception{
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertThrows(Exception.class, () -> student.setNumber("q1234567"));
     }
 
     @Test
-    public void testStudentCode2() throws Exception{
+    public void testNumberEndsWithNonAlphaNumeric() throws Exception{
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         Assertions.assertThrows(Exception.class, () -> student.setNumber("1234567-"));
     }
 
     @Test
-    public void testStudentCode3() throws Exception{
+    public void testValidNumber() throws Exception{
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
         String expectedNumber = "1234567q";
         student.setNumber("1234567q");
