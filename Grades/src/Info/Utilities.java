@@ -2,7 +2,7 @@ package Info;
 
 public final class Utilities {
     public static boolean isAlpha(String s) {
-        return s != null && s.matches("^[a-zA-Z\\s]+$");
+        return s != null && s.matches("[a-zA-Z]+");
     }
 
     public static boolean isNumeric(String s) {

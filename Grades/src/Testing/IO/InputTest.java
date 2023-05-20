@@ -1,48 +1,56 @@
 package Testing.IO;
 
 import IO.Input;
-import Info.Student;
-import Info.Subject;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
 import javax.naming.InvalidNameException;
-import java.util.ArrayList;
-
-import static org.junit.Assert.assertEquals;
 
 public class InputTest {
 
+    // Testing for the Input class to ensure that the input file is read correctly and that the names are stored correctly
     @Test
-    public void testStudentName() throws Exception{
-        Assertions.assertThrows(InvalidNameException.class, ()-> Input.getStudentList("./InputTests/testName.txt"));
+    public void testStudentName() {
+        Assertions.assertThrows(InvalidNameException.class, () -> Input.getStudentList("./InputTests/testName.txt"));
     }
 
+    // Testing for the Input class to ensure that the input file is read correctly and that the codes are stored correctly
     @Test
-    public void testStudentCode() throws Exception{
-        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./InputTests/testCode.txt"));
-    }
-    @Test
-    public void testStudentActivities() throws Exception{
-        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./InputTests/testName.txt"));
+    public void testStudentCode() {
+        Assertions.assertThrows(Exception.class, () -> Input.getStudentList("./InputTests/testCode.txt"));
     }
 
+    // Testing for the Input class to ensure that the input file is read correctly and that the activities are stored correctly
+    // with valid activities grades
     @Test
-    public void testStudentOral() throws Exception{
-        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./InputTests/testName.txt"));
+    public void testStudentActivities() {
+        Assertions.assertThrows(Exception.class, () -> Input.getStudentList("./InputTests/testActivities.txt"));
     }
 
+    // Testing for the Input class to ensure that the input file is read correctly and that the oral grades are stored correctly
+    // with valid oral grades
     @Test
-    public void testStudentMidterm() throws Exception{
-        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./InputTests/testName.txt"));
+    public void testStudentOral() {
+        Assertions.assertThrows(Exception.class, () -> Input.getStudentList("./InputTests/testOral.txt"));
     }
 
+    // Testing for the Input class to ensure that the input file is read correctly and that the midterm grades are stored correctly
+    // with valid midterm grades
     @Test
-    public void testStudentFinal() throws Exception{
-        Assertions.assertThrows(Exception.class, ()-> Input.getStudentList("./InputTests/testName.txt"));
+    public void testStudentMidterm() {
+        Assertions.assertThrows(Exception.class, () -> Input.getStudentList("./InputTests/testMidterm.txt"));
     }
+
+    // Testing for the Input class to ensure that the input file is read correctly and that the final grades are stored correctly
+    // with valid final grades
     @Test
-    public void testWorkingFile() throws Exception{
-        Assertions.assertDoesNotThrow(()-> Input.getStudentList("./InputTests/testAllWorking.txt"));
+    public void testStudentFinal() {
+        Assertions.assertThrows(Exception.class, () -> Input.getStudentList("./InputTests/testFinal.txt"));
+    }
+
+    // Testing for the Input class to ensure that the input file is read correctly and all data are correct
+    @Test
+    public void testWorkingFile() {
+        Assertions.assertDoesNotThrow(() -> Input.getStudentList("./InputTests/testAllWorking.txt"));
     }
 }

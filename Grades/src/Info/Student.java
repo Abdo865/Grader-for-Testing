@@ -88,7 +88,6 @@ public class Student {
 
     }
 
-
     // getters and setters for number
     public String getNumber() {
         return number;
@@ -124,9 +123,8 @@ public class Student {
 
     public void setOral(int oral) throws Exception {
 
-        if (activities > 10 || activities < 0) throw new Exception("Oral must be between 0 and 10");
+        if (oral > 10 || oral < 0) throw new Exception("Oral must be between 0 and 10");
         this.oral = oral;
-
 
     }
 
