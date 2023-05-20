@@ -60,7 +60,7 @@ public class OutputTest {
     
             Output outputFile = new Output(subject);
     
-            assertThrows(NullPointerException.class, () -> outputFile.save());
+            assertThrows(NullPointerException.class, () -> outputFile.save(null));
         });
     }
 
@@ -82,8 +82,6 @@ public class OutputTest {
             data.add(new Student("youcewfrefgvcssef", "12345678", 1, 9, 12, 20));
 
             outputFile.save(data);
-
-            outputFile.save();
 
             // Testing format of the output
             FileReader fileReader = new FileReader("../Test.CSV");
