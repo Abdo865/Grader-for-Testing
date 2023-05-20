@@ -9,18 +9,24 @@ import javax.naming.InvalidNameException;
 import static org.junit.Assert.assertEquals;
 
 public class conditionCoverageTest {
+
+    /* ---------------- Condition Coverage Test ---------------- */
+
+    // Test for the setName method space at the beginning of the name
     @Test
     public void testSetSubjectName() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
-        Assertions.assertThrows( InvalidNameException.class, () -> subject.setSubjectName(" Math"));
+        Assertions.assertThrows(InvalidNameException.class, () -> subject.setSubjectName(" Math"));
     }
 
+    // Test for the setName method with invalid name that has numbers on it
     @Test
     public void testSetSubjectName1() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
-        Assertions.assertThrows( InvalidNameException.class, () -> subject.setSubjectName("Math123"));
+        Assertions.assertThrows(InvalidNameException.class, () -> subject.setSubjectName("Math123"));
     }
 
+    // Test valid name
     @Test
     public void testSetSubjectName2() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
@@ -29,37 +35,42 @@ public class conditionCoverageTest {
         assertEquals(expectedName, subject.getSubjectName());
     }
 
-
+    // Test for the setSubjectCode method with number length less than 6 digits
     @Test
     public void testSetSubjectCodeLengthTooShort() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
         Assertions.assertThrows(Exception.class, () -> subject.setSubjectCode("MAT10"));
     }
 
+    // Test for the setSubjectCode method with number length more than 7 digits
     @Test
     public void testSetSubjectCodeLengthTooLong() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
         Assertions.assertThrows(Exception.class, () -> subject.setSubjectCode("Mathematics101"));
     }
 
+    // Test for the setSubjectCode method with invalid format (it must be 3 letters then 3 numbers or with an s at the end)
     @Test
     public void testSetSubjectCodeInvalidFormat() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
         Assertions.assertThrows(Exception.class, () -> subject.setSubjectCode("12A123"));
     }
 
+    // Test for the setSubjectCode method with non-alphanumeric character at the beginning (it must be 3 letters then 3 numbers or with an s at the end)
     @Test
     public void testSetSubjectCodeInvalidFormat1() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
         Assertions.assertThrows(Exception.class, () -> subject.setSubjectCode("MATM23"));
     }
 
+    // Test for the setSubjectCode method with something other than s at the end
     @Test
     public void testSetSubjectCodeInvalidEnding() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
         Assertions.assertThrows(Exception.class, () -> subject.setSubjectCode("ABC123X"));
     }
 
+    // Test for the setSubjectCode method with valid format (without s)
     @Test
     public void testValidSubjectCode6Chars() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
@@ -68,6 +79,7 @@ public class conditionCoverageTest {
         assertEquals(subjectCode, subject.getSubjectCode());
     }
 
+    // Test for the setSubjectCode method with valid format (with s)
     @Test
     public void testValidSubjectCode7Chars() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
@@ -75,4 +87,5 @@ public class conditionCoverageTest {
         subject.setSubjectCode("ABC123s");
         assertEquals(subjectCode, subject.getSubjectCode());
     }
+    /* --------------------------------------------------------------------------------- */
 }

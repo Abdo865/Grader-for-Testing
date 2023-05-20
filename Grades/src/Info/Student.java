@@ -75,7 +75,6 @@ public class Student {
     }
 
 
-
     // getters and setters for name
     public String getName() {
         return name;
@@ -96,12 +95,14 @@ public class Student {
     }
 
     public void setNumber(String number) throws Exception {
-        if (number.length() != 8) throw new Exception("Number must be 8 characters");
-        else if (!isNumeric(number.substring(0, 7))) throw new Exception("Number must start with 7 numbers");
-        else if (!isAlphaNumeric(number.substring(7, 8)))
+        if (number.length() != 8) {
+            throw new Exception("Number must be 8 characters");
+        } else if (!isNumeric(number.substring(0, 7))) {
+            throw new Exception("Number must start with 7 numbers");
+        } else if (!isAlphaNumeric(number.substring(7, 8))) {
             throw new Exception("Number must end with either number or character");
-
-            this.number = number;
+        }
+        this.number = number;
     }
 
 
