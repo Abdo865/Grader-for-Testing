@@ -4,8 +4,12 @@ import Info.Subject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.naming.InvalidNameException;
+
 
 class SubjectTest {
+
+
 
     @Test
     public void testSetSubjectName() throws Exception {

@@ -15,7 +15,6 @@ import javax.naming.InvalidNameException;
 
 import java.io.BufferedReader;
 
-import org.junit.Assert;
 import org.junit.Test;
 import Info.*;
 import IO.*;
@@ -38,7 +37,7 @@ public class OutputTest {
 
             new Output(subject);
 
-            assertThrows(IOException.class, () -> new Output(subject));
+            Assertions.assertThrows(IOException.class, () -> new Output(subject));
         });
     }
 
@@ -48,7 +47,7 @@ public class OutputTest {
             clear();
         });
 
-        assertThrows(NullPointerException.class, ()->new Output(null));
+        Assertions.assertThrows(NullPointerException.class, ()->new Output(null));
     }
 
     @Test
@@ -60,7 +59,7 @@ public class OutputTest {
     
             Output outputFile = new Output(subject);
     
-            assertThrows(NullPointerException.class, () -> outputFile.save());
+            Assertions.assertThrows(NullPointerException.class, () -> outputFile.save());
         });
     }
 
