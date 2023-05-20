@@ -13,13 +13,13 @@ public class StudentTest {
     @Test
     public void testSetName() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(InvalidNameException.class ,() ->  student.setName(" John"));
+        Assertions.assertThrows(InvalidNameException.class, () -> student.setName(" John"));
     }
 
     @Test
     public void testSetName1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(InvalidNameException.class ,() -> student.setName("123"));
+        Assertions.assertThrows(InvalidNameException.class, () -> student.setName("123"));
     }
 
     @Test
@@ -31,13 +31,13 @@ public class StudentTest {
     @Test
     public void testSetNumber() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(Exception.class, () ->  student.setNumber("1234567"));
+        Assertions.assertThrows(Exception.class, () -> student.setNumber("1234567"));
     }
 
     @Test
     public void testSetNumber1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setNumber("1234567a"));
+        Assertions.assertDoesNotThrow(() -> student.setNumber("1234567a"));
     }
 
     @Test
@@ -49,18 +49,18 @@ public class StudentTest {
 
     /* ----------- Tests of the setActivities method using boundary values test ----------- */
 
-    // boundary value test case (lower bound)
+    // boundary value test case (less than lower bound)
     @Test
     public void testSetActivities1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(Exception.class, () ->  student.setActivities(-1));
+        Assertions.assertThrows(Exception.class, () -> student.setActivities(-1));
     }
 
     // boundary value test case (exactly lower bound value)
     @Test
     public void testSetActivities2() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setActivities(0));
+        Assertions.assertDoesNotThrow(() -> student.setActivities(0));
     }
 
     // boundary value test case (normal value)
@@ -89,11 +89,11 @@ public class StudentTest {
 
     /* ----------- Tests of the setMidterm method using boundary values test ----------- */
 
-    // boundary value test case (lower bound)
+    // boundary value test case (less than lower bound)
     @Test
     public void testSetMidterm1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(Exception.class, () ->  student.setMidterm(-1));
+        Assertions.assertThrows(Exception.class, () -> student.setMidterm(-1));
     }
 
     // boundary value test case (exactly lower bound value)
@@ -121,7 +121,7 @@ public class StudentTest {
     @Test
     public void testSetMidterm5() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(Exception.class, () ->  student.setMidterm(21));
+        Assertions.assertThrows(Exception.class, () -> student.setMidterm(21));
     }
 
     /* --------------------------------------------------------------------------------- */
@@ -133,14 +133,14 @@ public class StudentTest {
     @Test
     public void testSetOral1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setOral(-1));
+        Assertions.assertDoesNotThrow(() -> student.setOral(-1));
     }
 
     // boundary value test case (exactly lower bound value)
     @Test
     public void testSetOral2() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setOral(0));
+        Assertions.assertDoesNotThrow(() -> student.setOral(0));
     }
 
     // boundary value test case (normal value)
@@ -173,14 +173,14 @@ public class StudentTest {
     @Test
     public void testSetFinal1() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertThrows(Exception.class, () ->  student.setFinal(-1));
+        Assertions.assertThrows(Exception.class, () -> student.setFinal(-1));
     }
 
     // boundary value test case (exactly lower bound value)
     @Test
     public void testSetFinal2() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);
-        Assertions.assertDoesNotThrow(() ->  student.setFinal(0));
+        Assertions.assertDoesNotThrow(() -> student.setFinal(0));
     }
 
     // boundary value test case (normal value)

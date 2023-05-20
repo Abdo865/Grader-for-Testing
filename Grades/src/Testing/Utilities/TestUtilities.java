@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestUtilities {
+
+
     @Test
     public void testIsAlpha() {
         Assertions.assertTrue(Utilities.isAlpha("abc"));
