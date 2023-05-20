@@ -2,8 +2,6 @@ import IO.Output;
 import Info.Student;
 import Info.Subject;
 
-import javax.naming.InvalidNameException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import static IO.Input.getSubjectInfo;
