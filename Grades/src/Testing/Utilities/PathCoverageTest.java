@@ -11,9 +11,9 @@ import static org.junit.Assert.assertEquals;
 public class PathCoverageTest {
 
     /* ---------------- Path Coverage Test ---------------- */
-
+    
     // Test for the setName method space at the beginning of the name
-    //path(1, 2, 3, 9)
+    // path(1, 2, 3, 9)
     @Test
     public void testNameWithSpaceAtStart() throws Exception {
         Student student = new Student("John", "12345678", 5, 3, 4, 5);

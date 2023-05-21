@@ -12,14 +12,14 @@ class SubjectTest {
     @Test
     public void testSetSubjectName() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
-        Assertions.assertDoesNotThrow(() -> subject.setSubjectName(" Math"));
+        Assertions.assertThrows(Exception.class, () -> subject.setSubjectName(" Math"));
     }
 
     // Test for the setName method with invalid name that has numbers on it
     @Test
     public void testSetSubjectName1() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
-        Assertions.assertDoesNotThrow(() -> subject.setSubjectName("Math1"));
+        Assertions.assertThrows(Exception.class, () -> subject.setSubjectName("Math1"));
     }
 
     // Test valid name
@@ -33,7 +33,7 @@ class SubjectTest {
     @Test
     public void testSetSubjectCode() throws Exception {
         Subject subject = new Subject("Math", "MAT101", 100);
-        Assertions.assertDoesNotThrow(() -> subject.setSubjectCode("MAT1010"));
+        Assertions.assertThrows(Exception.class, () -> subject.setSubjectCode("MAT1010"));
     }
 
     // Test for the setSubjectCode method with number length
